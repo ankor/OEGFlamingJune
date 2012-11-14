@@ -97,7 +97,7 @@ static NSMutableDictionary *loadedObjects;
     [cachedObject updateAttributes:dict];
     return cachedObject;
   }
-  
+
   return [[self alloc] initWithDictionary:dict];
 }
 
@@ -107,7 +107,7 @@ static NSMutableDictionary *loadedObjects;
     [self updateAttributes:dict];
     [loadedObjects setObject:self forKey:[[self class] identityCacheKey:self.modelId]];
   }
-  
+
   return self;
 }
 
@@ -134,24 +134,24 @@ static NSMutableDictionary *loadedObjects;
 
 + (Class)typeForPropertyName:(NSString *)propertyAccessor {
   objc_property_t property = class_getProperty([self class], [propertyAccessor UTF8String]);
-  
+
   const char *attrs = property_getAttributes(property);
-	if (attrs == NULL)
-		return NULL;
-  
+  if (attrs == NULL)
+    return NULL;
+
   if (attrs[0] != 'T') {
     return NULL;
   }
-  
-	static char buffer[256];
-	const char *e = strchr(attrs, ',');
-	if (e == NULL)
-		return NULL;
-  
-	int len = (int)(e - attrs);
-	memcpy(buffer, attrs + 3, len - 4);
-	buffer[len - 4] = '\0';
-  
+
+  static char buffer[256];
+  const char *e = strchr(attrs, ',');
+  if (e == NULL)
+    return NULL;
+
+  int len = (int)(e - attrs);
+  memcpy(buffer, attrs + 3, len - 4);
+  buffer[len - 4] = '\0';
+
   return NSClassFromString([NSString stringWithCString:buffer encoding:NSUTF8StringEncoding]);
 }
 
@@ -164,7 +164,7 @@ static NSMutableDictionary *loadedObjects;
     id dictObj = [dict objectForKey:obj];
     if (dictObj) {
       id value;
-      
+
       // Check the property type to see if it is another model
       Class propertyType = [[self class] typeForPropertyName:key];
       if ([propertyType isSubclassOfClass:[OEGModel class]]) {
@@ -185,7 +185,7 @@ static NSMutableDictionary *loadedObjects;
       } else {
         value = dictObj;
       }
-      
+
       if (value && value != [NSNull null]) {
         [self setValue:value forKey:key];
       }

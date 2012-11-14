@@ -1,4 +1,8 @@
 platform :ios, "5.0"
 
 pod "AFNetworking"
-pod "NSURLConnectionVCR", :local => "~/Documents/andersc/NSURLConnectionVCR"
+
+target :test, :exclusive => true do
+  link_with "OEGFlamingJuneTests"
+  pod "NSURLConnectionVCR", :local => "~/Documents/andersc/NSURLConnectionVCR"
+end

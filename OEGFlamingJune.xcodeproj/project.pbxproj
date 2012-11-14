@@ -7,197 +7,188 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB15F412DAC047F28A5D4E0C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA725EE85A554AA49E6E69C8 /* libPods.a */; };
-		D7322444165244DA004C9739 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7322443165244DA004C9739 /* UIKit.framework */; };
-		D7322446165244DA004C9739 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7322445165244DA004C9739 /* Foundation.framework */; };
-		D7322448165244DA004C9739 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7322447165244DA004C9739 /* CoreGraphics.framework */; };
-		D732244E165244DA004C9739 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D732244C165244DA004C9739 /* InfoPlist.strings */; };
-		D7322450165244DA004C9739 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D732244F165244DA004C9739 /* main.m */; };
-		D7322454165244DA004C9739 /* OEGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7322453165244DA004C9739 /* OEGAppDelegate.m */; };
-		D7322456165244DA004C9739 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D7322455165244DA004C9739 /* Default.png */; };
-		D7322458165244DA004C9739 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7322457165244DA004C9739 /* Default@2x.png */; };
-		D732245A165244DA004C9739 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7322459165244DA004C9739 /* Default-568h@2x.png */; };
-		D7322462165244DA004C9739 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7322461165244DA004C9739 /* SenTestingKit.framework */; };
-		D7322463165244DA004C9739 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7322443165244DA004C9739 /* UIKit.framework */; };
-		D7322464165244DA004C9739 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7322445165244DA004C9739 /* Foundation.framework */; };
-		D732246C165244DA004C9739 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D732246A165244DA004C9739 /* InfoPlist.strings */; };
-		D732246F165244DA004C9739 /* OEGFlamingJuneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D732246E165244DA004C9739 /* OEGFlamingJuneTests.m */; };
-		D732247B165245D9004C9739 /* OEGModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D732247A165245D9004C9739 /* OEGModel.m */; };
-		D732247C165245D9004C9739 /* OEGModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D732247A165245D9004C9739 /* OEGModel.m */; };
-		D76C3632165249B700DA86B0 /* OEGModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D76C3631165249B700DA86B0 /* OEGModelTests.m */; };
-		D76C363516524BAF00DA86B0 /* AFAppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D76C363416524BAF00DA86B0 /* AFAppDotNetAPIClient.m */; };
-		D76C363816524C6600DA86B0 /* AppDotNetPost.m in Sources */ = {isa = PBXBuildFile; fileRef = D76C363716524C6600DA86B0 /* AppDotNetPost.m */; };
-		D76C363B16524E3B00DA86B0 /* AppDotNetUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D76C363A16524E3B00DA86B0 /* AppDotNetUser.m */; };
+		6D36E1A755FC4A7BAEDF3DEA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 197B142723AD414FAF5BAC82 /* libPods.a */; };
+		993F5799A26E425B922B6E9A /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEC95E1D89D4AB9BEBE41DA /* libPods-test.a */; };
+		D706D0E91653E8EE00FBB702 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D706D0E81653E8EE00FBB702 /* Foundation.framework */; };
+		D706D0F81653E8EE00FBB702 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D706D0F71653E8EE00FBB702 /* SenTestingKit.framework */; };
+		D706D0FB1653E8EE00FBB702 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D706D0E81653E8EE00FBB702 /* Foundation.framework */; };
+		D706D0FE1653E8EE00FBB702 /* libOEGFlamingJune.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D706D0E51653E8EE00FBB702 /* libOEGFlamingJune.a */; };
+		D706D1041653E8EE00FBB702 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D706D1021653E8EE00FBB702 /* InfoPlist.strings */; };
+		D706D1131653E91B00FBB702 /* OEGModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D706D1111653E91B00FBB702 /* OEGModel.m */; };
+		D706D1231653E9B100FBB702 /* AFAppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D706D11E1653E9B100FBB702 /* AFAppDotNetAPIClient.m */; };
+		D706D1241653E9B100FBB702 /* AppDotNetPost.m in Sources */ = {isa = PBXBuildFile; fileRef = D706D1201653E9B100FBB702 /* AppDotNetPost.m */; };
+		D706D1251653E9B100FBB702 /* AppDotNetUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D706D1221653E9B100FBB702 /* AppDotNetUser.m */; };
+		D706D12A1653E9CB00FBB702 /* OEGFlamingJuneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D706D1271653E9CB00FBB702 /* OEGFlamingJuneTests.m */; };
+		D706D12B1653E9CB00FBB702 /* OEGModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D706D1291653E9CB00FBB702 /* OEGModelTests.m */; };
+		D706D13F1653EC4800FBB702 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D706D13E1653EC4800FBB702 /* UIKit.framework */; };
+		D706D1411653EC5700FBB702 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D706D1401653EC5700FBB702 /* MobileCoreServices.framework */; };
+		D706D1431653EC6A00FBB702 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D706D1421653EC6A00FBB702 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D7322465165244DA004C9739 /* PBXContainerItemProxy */ = {
+		D706D0FC1653E8EE00FBB702 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D7322436165244D9004C9739 /* Project object */;
+			containerPortal = D706D0DC1653E8EE00FBB702 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D732243E165244D9004C9739;
+			remoteGlobalIDString = D706D0E41653E8EE00FBB702;
 			remoteInfo = OEGFlamingJune;
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXFileReference section */
-		38A6FAA4975B44B1BEF521C6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		BA725EE85A554AA49E6E69C8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D732243F165244DA004C9739 /* OEGFlamingJune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OEGFlamingJune.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7322443165244DA004C9739 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		D7322445165244DA004C9739 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D7322447165244DA004C9739 /* CoreGraphics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D732244B165244DA004C9739 /* OEGFlamingJune-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OEGFlamingJune-Info.plist"; sourceTree = "<group>"; };
-		D732244D165244DA004C9739 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D732244F165244DA004C9739 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D7322451165244DA004C9739 /* OEGFlamingJune-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEGFlamingJune-Prefix.pch"; sourceTree = "<group>"; };
-		D7322452165244DA004C9739 /* OEGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OEGAppDelegate.h; sourceTree = "<group>"; };
-		D7322453165244DA004C9739 /* OEGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OEGAppDelegate.m; sourceTree = "<group>"; };
-		D7322455165244DA004C9739 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		D7322457165244DA004C9739 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		D7322459165244DA004C9739 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		D7322460165244DA004C9739 /* OEGFlamingJuneTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OEGFlamingJuneTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7322461165244DA004C9739 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		D7322469165244DA004C9739 /* OEGFlamingJuneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OEGFlamingJuneTests-Info.plist"; sourceTree = "<group>"; };
-		D732246B165244DA004C9739 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D732246D165244DA004C9739 /* OEGFlamingJuneTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OEGFlamingJuneTests.h; sourceTree = "<group>"; };
-		D732246E165244DA004C9739 /* OEGFlamingJuneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OEGFlamingJuneTests.m; sourceTree = "<group>"; };
-		D7322479165245D9004C9739 /* OEGModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGModel.h; sourceTree = "<group>"; };
-		D732247A165245D9004C9739 /* OEGModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGModel.m; sourceTree = "<group>"; };
-		D76C3630165249B700DA86B0 /* OEGModelTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGModelTests.h; sourceTree = "<group>"; };
-		D76C3631165249B700DA86B0 /* OEGModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGModelTests.m; sourceTree = "<group>"; };
-		D76C363316524BAF00DA86B0 /* AFAppDotNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAppDotNetAPIClient.h; sourceTree = "<group>"; };
-		D76C363416524BAF00DA86B0 /* AFAppDotNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAppDotNetAPIClient.m; sourceTree = "<group>"; };
-		D76C363616524C6600DA86B0 /* AppDotNetPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDotNetPost.h; sourceTree = "<group>"; };
-		D76C363716524C6600DA86B0 /* AppDotNetPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDotNetPost.m; sourceTree = "<group>"; };
-		D76C363916524E3B00DA86B0 /* AppDotNetUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDotNetUser.h; sourceTree = "<group>"; };
-		D76C363A16524E3B00DA86B0 /* AppDotNetUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDotNetUser.m; sourceTree = "<group>"; };
-		D76C363C1652539E00DA86B0 /* OEGModel+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEGModel+Private.h"; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		D732243C165244D9004C9739 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
+/* Begin PBXCopyFilesBuildPhase section */
+		D706D0E31653E8EE00FBB702 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
 			files = (
-				D7322444165244DA004C9739 /* UIKit.framework in Frameworks */,
-				D7322446165244DA004C9739 /* Foundation.framework in Frameworks */,
-				D7322448165244DA004C9739 /* CoreGraphics.framework in Frameworks */,
-				CB15F412DAC047F28A5D4E0C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D732245C165244DA004C9739 /* Frameworks */ = {
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		197B142723AD414FAF5BAC82 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CDD0DB133C04D4581A10354 /* Pods-test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.xcconfig"; path = "Pods/Pods-test.xcconfig"; sourceTree = SOURCE_ROOT; };
+		92DE642F37FB477DAB7DAD3D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		D706D0E51653E8EE00FBB702 /* libOEGFlamingJune.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOEGFlamingJune.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D706D0E81653E8EE00FBB702 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D706D0EC1653E8EE00FBB702 /* OEGFlamingJune-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OEGFlamingJune-Prefix.pch"; sourceTree = "<group>"; };
+		D706D0F61653E8EE00FBB702 /* OEGFlamingJuneTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OEGFlamingJuneTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D706D0F71653E8EE00FBB702 /* SenTestingKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D706D1011653E8EE00FBB702 /* OEGFlamingJuneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OEGFlamingJuneTests-Info.plist"; sourceTree = "<group>"; };
+		D706D1031653E8EE00FBB702 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D706D1101653E91B00FBB702 /* OEGModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGModel.h; sourceTree = "<group>"; };
+		D706D1111653E91B00FBB702 /* OEGModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGModel.m; sourceTree = "<group>"; };
+		D706D1121653E91B00FBB702 /* OEGModel+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OEGModel+Private.h"; sourceTree = "<group>"; };
+		D706D11D1653E9B100FBB702 /* AFAppDotNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAppDotNetAPIClient.h; sourceTree = "<group>"; };
+		D706D11E1653E9B100FBB702 /* AFAppDotNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAppDotNetAPIClient.m; sourceTree = "<group>"; };
+		D706D11F1653E9B100FBB702 /* AppDotNetPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDotNetPost.h; sourceTree = "<group>"; };
+		D706D1201653E9B100FBB702 /* AppDotNetPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDotNetPost.m; sourceTree = "<group>"; };
+		D706D1211653E9B100FBB702 /* AppDotNetUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDotNetUser.h; sourceTree = "<group>"; };
+		D706D1221653E9B100FBB702 /* AppDotNetUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDotNetUser.m; sourceTree = "<group>"; };
+		D706D1261653E9CB00FBB702 /* OEGFlamingJuneTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGFlamingJuneTests.h; sourceTree = "<group>"; };
+		D706D1271653E9CB00FBB702 /* OEGFlamingJuneTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGFlamingJuneTests.m; sourceTree = "<group>"; };
+		D706D1281653E9CB00FBB702 /* OEGModelTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGModelTests.h; sourceTree = "<group>"; };
+		D706D1291653E9CB00FBB702 /* OEGModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGModelTests.m; sourceTree = "<group>"; };
+		D706D13E1653EC4800FBB702 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D706D1401653EC5700FBB702 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D706D1421653EC6A00FBB702 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EBEC95E1D89D4AB9BEBE41DA /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D706D0E21653E8EE00FBB702 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7322462165244DA004C9739 /* SenTestingKit.framework in Frameworks */,
-				D7322463165244DA004C9739 /* UIKit.framework in Frameworks */,
-				D7322464165244DA004C9739 /* Foundation.framework in Frameworks */,
+				D706D0E91653E8EE00FBB702 /* Foundation.framework in Frameworks */,
+				6D36E1A755FC4A7BAEDF3DEA /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D706D0F21653E8EE00FBB702 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D706D1431653EC6A00FBB702 /* SystemConfiguration.framework in Frameworks */,
+				D706D1411653EC5700FBB702 /* MobileCoreServices.framework in Frameworks */,
+				D706D13F1653EC4800FBB702 /* UIKit.framework in Frameworks */,
+				D706D0F81653E8EE00FBB702 /* SenTestingKit.framework in Frameworks */,
+				D706D0FB1653E8EE00FBB702 /* Foundation.framework in Frameworks */,
+				D706D0FE1653E8EE00FBB702 /* libOEGFlamingJune.a in Frameworks */,
+				993F5799A26E425B922B6E9A /* libPods-test.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D7322434165244D9004C9739 = {
+		D706D0DA1653E8EE00FBB702 = {
 			isa = PBXGroup;
 			children = (
-				D7322449165244DA004C9739 /* OEGFlamingJune */,
-				D7322467165244DA004C9739 /* OEGFlamingJuneTests */,
-				D7322442165244DA004C9739 /* Frameworks */,
-				D7322440165244DA004C9739 /* Products */,
-				38A6FAA4975B44B1BEF521C6 /* Pods.xcconfig */,
+				D706D0EA1653E8EE00FBB702 /* OEGFlamingJune */,
+				D706D0FF1653E8EE00FBB702 /* OEGFlamingJuneTests */,
+				D706D0E71653E8EE00FBB702 /* Frameworks */,
+				D706D0E61653E8EE00FBB702 /* Products */,
+				92DE642F37FB477DAB7DAD3D /* Pods.xcconfig */,
+				4CDD0DB133C04D4581A10354 /* Pods-test.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
-		D7322440165244DA004C9739 /* Products */ = {
+		D706D0E61653E8EE00FBB702 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D732243F165244DA004C9739 /* OEGFlamingJune.app */,
-				D7322460165244DA004C9739 /* OEGFlamingJuneTests.octest */,
+				D706D0E51653E8EE00FBB702 /* libOEGFlamingJune.a */,
+				D706D0F61653E8EE00FBB702 /* OEGFlamingJuneTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D7322442165244DA004C9739 /* Frameworks */ = {
+		D706D0E71653E8EE00FBB702 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D7322443165244DA004C9739 /* UIKit.framework */,
-				D7322445165244DA004C9739 /* Foundation.framework */,
-				D7322447165244DA004C9739 /* CoreGraphics.framework */,
-				D7322461165244DA004C9739 /* SenTestingKit.framework */,
-				BA725EE85A554AA49E6E69C8 /* libPods.a */,
+				D706D0E81653E8EE00FBB702 /* Foundation.framework */,
+				D706D0F71653E8EE00FBB702 /* SenTestingKit.framework */,
+				D706D1421653EC6A00FBB702 /* SystemConfiguration.framework */,
+				D706D1401653EC5700FBB702 /* MobileCoreServices.framework */,
+				D706D13E1653EC4800FBB702 /* UIKit.framework */,
+				197B142723AD414FAF5BAC82 /* libPods.a */,
+				EBEC95E1D89D4AB9BEBE41DA /* libPods-test.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D7322449165244DA004C9739 /* OEGFlamingJune */ = {
+		D706D0EA1653E8EE00FBB702 /* OEGFlamingJune */ = {
 			isa = PBXGroup;
 			children = (
-				D7322478165245B1004C9739 /* Model */,
-				D7322452165244DA004C9739 /* OEGAppDelegate.h */,
-				D7322453165244DA004C9739 /* OEGAppDelegate.m */,
-				D732244A165244DA004C9739 /* Supporting Files */,
+				D706D1101653E91B00FBB702 /* OEGModel.h */,
+				D706D1121653E91B00FBB702 /* OEGModel+Private.h */,
+				D706D1111653E91B00FBB702 /* OEGModel.m */,
+				D706D0EB1653E8EE00FBB702 /* Supporting Files */,
 			);
 			path = OEGFlamingJune;
 			sourceTree = "<group>";
 		};
-		D732244A165244DA004C9739 /* Supporting Files */ = {
+		D706D0EB1653E8EE00FBB702 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D732244B165244DA004C9739 /* OEGFlamingJune-Info.plist */,
-				D732244C165244DA004C9739 /* InfoPlist.strings */,
-				D732244F165244DA004C9739 /* main.m */,
-				D7322451165244DA004C9739 /* OEGFlamingJune-Prefix.pch */,
-				D7322455165244DA004C9739 /* Default.png */,
-				D7322457165244DA004C9739 /* Default@2x.png */,
-				D7322459165244DA004C9739 /* Default-568h@2x.png */,
+				D706D0EC1653E8EE00FBB702 /* OEGFlamingJune-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D7322467165244DA004C9739 /* OEGFlamingJuneTests */ = {
+		D706D0FF1653E8EE00FBB702 /* OEGFlamingJuneTests */ = {
 			isa = PBXGroup;
 			children = (
-				D76C365216538B0D00DA86B0 /* AppDotNet */,
-				D732246D165244DA004C9739 /* OEGFlamingJuneTests.h */,
-				D732246E165244DA004C9739 /* OEGFlamingJuneTests.m */,
-				D76C3630165249B700DA86B0 /* OEGModelTests.h */,
-				D76C3631165249B700DA86B0 /* OEGModelTests.m */,
-				D7322468165244DA004C9739 /* Supporting Files */,
+				D706D11C1653E99A00FBB702 /* AppDotNet */,
+				D706D1261653E9CB00FBB702 /* OEGFlamingJuneTests.h */,
+				D706D1271653E9CB00FBB702 /* OEGFlamingJuneTests.m */,
+				D706D1281653E9CB00FBB702 /* OEGModelTests.h */,
+				D706D1291653E9CB00FBB702 /* OEGModelTests.m */,
+				D706D1001653E8EE00FBB702 /* Supporting Files */,
 			);
 			path = OEGFlamingJuneTests;
 			sourceTree = "<group>";
 		};
-		D7322468165244DA004C9739 /* Supporting Files */ = {
+		D706D1001653E8EE00FBB702 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D7322469165244DA004C9739 /* OEGFlamingJuneTests-Info.plist */,
-				D732246A165244DA004C9739 /* InfoPlist.strings */,
+				D706D1011653E8EE00FBB702 /* OEGFlamingJuneTests-Info.plist */,
+				D706D1021653E8EE00FBB702 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D7322478165245B1004C9739 /* Model */ = {
+		D706D11C1653E99A00FBB702 /* AppDotNet */ = {
 			isa = PBXGroup;
 			children = (
-				D7322479165245D9004C9739 /* OEGModel.h */,
-				D76C363C1652539E00DA86B0 /* OEGModel+Private.h */,
-				D732247A165245D9004C9739 /* OEGModel.m */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		D76C365216538B0D00DA86B0 /* AppDotNet */ = {
-			isa = PBXGroup;
-			children = (
-				D76C363316524BAF00DA86B0 /* AFAppDotNetAPIClient.h */,
-				D76C363416524BAF00DA86B0 /* AFAppDotNetAPIClient.m */,
-				D76C363616524C6600DA86B0 /* AppDotNetPost.h */,
-				D76C363716524C6600DA86B0 /* AppDotNetPost.m */,
-				D76C363916524E3B00DA86B0 /* AppDotNetUser.h */,
-				D76C363A16524E3B00DA86B0 /* AppDotNetUser.m */,
+				D706D11D1653E9B100FBB702 /* AFAppDotNetAPIClient.h */,
+				D706D11E1653E9B100FBB702 /* AFAppDotNetAPIClient.m */,
+				D706D11F1653E9B100FBB702 /* AppDotNetPost.h */,
+				D706D1201653E9B100FBB702 /* AppDotNetPost.m */,
+				D706D1211653E9B100FBB702 /* AppDotNetUser.h */,
+				D706D1221653E9B100FBB702 /* AppDotNetUser.m */,
 			);
 			name = AppDotNet;
 			sourceTree = "<group>";
@@ -205,14 +196,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D732243E165244D9004C9739 /* OEGFlamingJune */ = {
+		D706D0E41653E8EE00FBB702 /* OEGFlamingJune */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D7322472165244DA004C9739 /* Build configuration list for PBXNativeTarget "OEGFlamingJune" */;
+			buildConfigurationList = D706D10A1653E8EE00FBB702 /* Build configuration list for PBXNativeTarget "OEGFlamingJune" */;
 			buildPhases = (
-				D732243B165244D9004C9739 /* Sources */,
-				D732243C165244D9004C9739 /* Frameworks */,
-				D732243D165244D9004C9739 /* Resources */,
-				E45D470528E04160B0F3CC38 /* Copy Pods Resources */,
+				D706D0E11653E8EE00FBB702 /* Sources */,
+				D706D0E21653E8EE00FBB702 /* Frameworks */,
+				D706D0E31653E8EE00FBB702 /* CopyFiles */,
+				A54AB5F827FF4031957FB5D1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -220,93 +211,69 @@
 			);
 			name = OEGFlamingJune;
 			productName = OEGFlamingJune;
-			productReference = D732243F165244DA004C9739 /* OEGFlamingJune.app */;
-			productType = "com.apple.product-type.application";
+			productReference = D706D0E51653E8EE00FBB702 /* libOEGFlamingJune.a */;
+			productType = "com.apple.product-type.library.static";
 		};
-		D732245F165244DA004C9739 /* OEGFlamingJuneTests */ = {
+		D706D0F51653E8EE00FBB702 /* OEGFlamingJuneTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D7322475165244DA004C9739 /* Build configuration list for PBXNativeTarget "OEGFlamingJuneTests" */;
+			buildConfigurationList = D706D10D1653E8EE00FBB702 /* Build configuration list for PBXNativeTarget "OEGFlamingJuneTests" */;
 			buildPhases = (
-				D732245B165244DA004C9739 /* Sources */,
-				D732245C165244DA004C9739 /* Frameworks */,
-				D732245D165244DA004C9739 /* Resources */,
-				D732245E165244DA004C9739 /* ShellScript */,
+				D706D0F11653E8EE00FBB702 /* Sources */,
+				D706D0F21653E8EE00FBB702 /* Frameworks */,
+				D706D0F31653E8EE00FBB702 /* Resources */,
+				D706D0F41653E8EE00FBB702 /* ShellScript */,
+				FB222FDF01A64D19B8CD7D38 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D7322466165244DA004C9739 /* PBXTargetDependency */,
+				D706D0FD1653E8EE00FBB702 /* PBXTargetDependency */,
 			);
 			name = OEGFlamingJuneTests;
 			productName = OEGFlamingJuneTests;
-			productReference = D7322460165244DA004C9739 /* OEGFlamingJuneTests.octest */;
+			productReference = D706D0F61653E8EE00FBB702 /* OEGFlamingJuneTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D7322436165244D9004C9739 /* Project object */ = {
+		D706D0DC1653E8EE00FBB702 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = OEG;
 				LastUpgradeCheck = 0450;
-				ORGANIZATIONNAME = "Önders et Gonas";
+				ORGANIZATIONNAME = "‚àö√±nders et Gonas";
 			};
-			buildConfigurationList = D7322439165244D9004C9739 /* Build configuration list for PBXProject "OEGFlamingJune" */;
+			buildConfigurationList = D706D0DF1653E8EE00FBB702 /* Build configuration list for PBXProject "OEGFlamingJune" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = D7322434165244D9004C9739;
-			productRefGroup = D7322440165244DA004C9739 /* Products */;
+			mainGroup = D706D0DA1653E8EE00FBB702;
+			productRefGroup = D706D0E61653E8EE00FBB702 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D732243E165244D9004C9739 /* OEGFlamingJune */,
-				D732245F165244DA004C9739 /* OEGFlamingJuneTests */,
+				D706D0E41653E8EE00FBB702 /* OEGFlamingJune */,
+				D706D0F51653E8EE00FBB702 /* OEGFlamingJuneTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D732243D165244D9004C9739 /* Resources */ = {
+		D706D0F31653E8EE00FBB702 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D732244E165244DA004C9739 /* InfoPlist.strings in Resources */,
-				D7322456165244DA004C9739 /* Default.png in Resources */,
-				D7322458165244DA004C9739 /* Default@2x.png in Resources */,
-				D732245A165244DA004C9739 /* Default-568h@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D732245D165244DA004C9739 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D732246C165244DA004C9739 /* InfoPlist.strings in Resources */,
+				D706D1041653E8EE00FBB702 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		D732245E165244DA004C9739 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-		E45D470528E04160B0F3CC38 /* Copy Pods Resources */ = {
+		A54AB5F827FF4031957FB5D1 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -320,55 +287,71 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
+		D706D0F41653E8EE00FBB702 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		FB222FDF01A64D19B8CD7D38 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-test-resources.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D732243B165244D9004C9739 /* Sources */ = {
+		D706D0E11653E8EE00FBB702 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7322450165244DA004C9739 /* main.m in Sources */,
-				D7322454165244DA004C9739 /* OEGAppDelegate.m in Sources */,
-				D732247B165245D9004C9739 /* OEGModel.m in Sources */,
+				D706D1131653E91B00FBB702 /* OEGModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D732245B165244DA004C9739 /* Sources */ = {
+		D706D0F11653E8EE00FBB702 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D732246F165244DA004C9739 /* OEGFlamingJuneTests.m in Sources */,
-				D732247C165245D9004C9739 /* OEGModel.m in Sources */,
-				D76C3632165249B700DA86B0 /* OEGModelTests.m in Sources */,
-				D76C363516524BAF00DA86B0 /* AFAppDotNetAPIClient.m in Sources */,
-				D76C363816524C6600DA86B0 /* AppDotNetPost.m in Sources */,
-				D76C363B16524E3B00DA86B0 /* AppDotNetUser.m in Sources */,
+				D706D1231653E9B100FBB702 /* AFAppDotNetAPIClient.m in Sources */,
+				D706D1241653E9B100FBB702 /* AppDotNetPost.m in Sources */,
+				D706D1251653E9B100FBB702 /* AppDotNetUser.m in Sources */,
+				D706D12A1653E9CB00FBB702 /* OEGFlamingJuneTests.m in Sources */,
+				D706D12B1653E9CB00FBB702 /* OEGModelTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D7322466165244DA004C9739 /* PBXTargetDependency */ = {
+		D706D0FD1653E8EE00FBB702 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D732243E165244D9004C9739 /* OEGFlamingJune */;
-			targetProxy = D7322465165244DA004C9739 /* PBXContainerItemProxy */;
+			target = D706D0E41653E8EE00FBB702 /* OEGFlamingJune */;
+			targetProxy = D706D0FC1653E8EE00FBB702 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D732244C165244DA004C9739 /* InfoPlist.strings */ = {
+		D706D1021653E8EE00FBB702 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D732244D165244DA004C9739 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D732246A165244DA004C9739 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D732246B165244DA004C9739 /* en */,
+				D706D1031653E8EE00FBB702 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -376,7 +359,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		D7322470165244DA004C9739 /* Debug */ = {
+		D706D1081653E8EE00FBB702 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -385,7 +368,6 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -394,7 +376,6 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "SRCROOT=$(SRCROOT)";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -405,7 +386,7 @@
 			};
 			name = Debug;
 		};
-		D7322471165244DA004C9739 /* Release */ = {
+		D706D1091653E8EE00FBB702 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -414,76 +395,71 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "SRCROOT=$(SRCROOT)";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		D7322473165244DA004C9739 /* Debug */ = {
+		D706D10B1653E8EE00FBB702 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38A6FAA4975B44B1BEF521C6 /* Pods.xcconfig */;
+			baseConfigurationReference = 92DE642F37FB477DAB7DAD3D /* Pods.xcconfig */;
 			buildSettings = {
+				DSTROOT = /tmp/OEGFlamingJune.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OEGFlamingJune/OEGFlamingJune-Prefix.pch";
-				INFOPLIST_FILE = "OEGFlamingJune/OEGFlamingJune-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		D7322474165244DA004C9739 /* Release */ = {
+		D706D10C1653E8EE00FBB702 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38A6FAA4975B44B1BEF521C6 /* Pods.xcconfig */;
+			baseConfigurationReference = 92DE642F37FB477DAB7DAD3D /* Pods.xcconfig */;
 			buildSettings = {
+				DSTROOT = /tmp/OEGFlamingJune.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OEGFlamingJune/OEGFlamingJune-Prefix.pch";
-				INFOPLIST_FILE = "OEGFlamingJune/OEGFlamingJune-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		D7322476165244DA004C9739 /* Debug */ = {
+		D706D10E1653E8EE00FBB702 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38A6FAA4975B44B1BEF521C6 /* Pods.xcconfig */;
+			baseConfigurationReference = 4CDD0DB133C04D4581A10354 /* Pods-test.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OEGFlamingJune.app/OEGFlamingJune";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OEGFlamingJune/OEGFlamingJune-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "SRCROOT=$(SRCROOT)";
 				INFOPLIST_FILE = "OEGFlamingJuneTests/OEGFlamingJuneTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
-		D7322477165244DA004C9739 /* Release */ = {
+		D706D10F1653E8EE00FBB702 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38A6FAA4975B44B1BEF521C6 /* Pods.xcconfig */;
+			baseConfigurationReference = 4CDD0DB133C04D4581A10354 /* Pods-test.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OEGFlamingJune.app/OEGFlamingJune";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OEGFlamingJune/OEGFlamingJune-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "SRCROOT=$(SRCROOT)";
 				INFOPLIST_FILE = "OEGFlamingJuneTests/OEGFlamingJuneTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
@@ -491,34 +467,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D7322439165244D9004C9739 /* Build configuration list for PBXProject "OEGFlamingJune" */ = {
+		D706D0DF1653E8EE00FBB702 /* Build configuration list for PBXProject "OEGFlamingJune" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D7322470165244DA004C9739 /* Debug */,
-				D7322471165244DA004C9739 /* Release */,
+				D706D1081653E8EE00FBB702 /* Debug */,
+				D706D1091653E8EE00FBB702 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D7322472165244DA004C9739 /* Build configuration list for PBXNativeTarget "OEGFlamingJune" */ = {
+		D706D10A1653E8EE00FBB702 /* Build configuration list for PBXNativeTarget "OEGFlamingJune" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D7322473165244DA004C9739 /* Debug */,
-				D7322474165244DA004C9739 /* Release */,
+				D706D10B1653E8EE00FBB702 /* Debug */,
+				D706D10C1653E8EE00FBB702 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D7322475165244DA004C9739 /* Build configuration list for PBXNativeTarget "OEGFlamingJuneTests" */ = {
+		D706D10D1653E8EE00FBB702 /* Build configuration list for PBXNativeTarget "OEGFlamingJuneTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D7322476165244DA004C9739 /* Debug */,
-				D7322477165244DA004C9739 /* Release */,
+				D706D10E1653E8EE00FBB702 /* Debug */,
+				D706D10F1653E8EE00FBB702 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D7322436165244D9004C9739 /* Project object */;
+	rootObject = D706D0DC1653E8EE00FBB702 /* Project object */;
 }
