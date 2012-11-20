@@ -174,7 +174,26 @@ static NSMutableDictionary *loadedObjects;
         } else {
           value = [propertyType findOrInitialize:[NSDictionary dictionaryWithObject:dictObj forKey:@"id"]];
         }
-      } else if([propertyType isSubclassOfClass:[NSDate class]]) {
+      } else if ([propertyType isSubclassOfClass:[NSArray class]]) {
+        // If this is an 1:n association, populate it with OEGModel objects, otherwise just set the array
+        SEL associationCheck = NSSelectorFromString([NSString stringWithFormat:@"associationClassFor_%@", key]);
+        if ([self respondsToSelector:associationCheck]) {
+          Class modelType = [self performSelector:associationCheck];
+          NSMutableArray *associationObjects = [NSMutableArray arrayWithCapacity:[dictObj count]];
+          for (NSDictionary *associationDict in dictObj) {
+            id associationObject;
+            if ([dictObj isKindOfClass:[NSDictionary class]]) {
+              associationObject = [modelType findOrInitialize:dictObj];
+            } else {
+              associationObject = [modelType findOrInitialize:[NSDictionary dictionaryWithObject:dictObj forKey:@"id"]];
+            }
+            [associationObjects addObject:associationObject];
+          }
+          value = associationObjects;
+        } else {
+          value = dictObj;
+        }
+      } else if ([propertyType isSubclassOfClass:[NSDate class]]) {
         // Parse JSON dates
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
