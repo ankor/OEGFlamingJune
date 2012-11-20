@@ -4,5 +4,5 @@ pod "AFNetworking"
 
 target :test, :exclusive => true do
   link_with "OEGFlamingJuneTests"
-  pod "NSURLConnectionVCR", :local => "~/Documents/andersc/NSURLConnectionVCR"
+  pod "NSURLConnectionVCR"
 end

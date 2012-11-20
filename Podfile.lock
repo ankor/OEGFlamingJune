@@ -5,14 +5,10 @@ PODS:
 
 DEPENDENCIES:
 - AFNetworking
-- NSURLConnectionVCR (from `~/Documents/andersc/NSURLConnectionVCR')
-
-EXTERNAL SOURCES:
-  NSURLConnectionVCR:
-    :local: ~/Documents/andersc/NSURLConnectionVCR
+- NSURLConnectionVCR
 
 SPEC CHECKSUMS:
   AFNetworking: 4c11f857c9a18d65f4257c90a1e74ac49f0ac422
-  NSURLConnectionVCR: c743acb06d312fee962c05ffda28c43d9df73c79
+  NSURLConnectionVCR: 68fecf6cd8efb5c2ffcec8fb6d7e4e34a8968bb2
 
 COCOAPODS: 0.15.2
