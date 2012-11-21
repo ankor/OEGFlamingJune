@@ -37,19 +37,19 @@ static NSMutableDictionary *loadedObjects;
   [[self httpClient] enqueueHTTPRequestOperation:operation];
 }
 
-+ (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(CallbackBlock)block originalData:(CallbackBlock)originalBlock {
++ (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(CallbackBlock)block originalData:(OriginalCallbackBlock)originalBlock {
   NSMutableURLRequest *request = [[self httpClient] requestWithMethod:[method uppercaseString] path:path parameters:params];
   AFHTTPRequestOperation *operation = [[self httpClient] HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
     [self handleResponseData:responseObject withBlock:block];
     if (originalBlock != nil) {
-      originalBlock(responseObject, nil);
+      originalBlock(operation, responseObject, nil);
     }
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     if (block != nil) {
       block(nil, error);
     }
     if (originalBlock != nil) {
-      originalBlock(nil, error);
+      originalBlock(operation, nil, error);
     }
   }];
 

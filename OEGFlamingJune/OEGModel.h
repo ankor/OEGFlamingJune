@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class AFHTTPRequestOperation;
+
 typedef void(^CallbackBlock)(id responseData, NSError *error);
+typedef void(^OriginalCallbackBlock)(AFHTTPRequestOperation *operation, id responseData, NSError *error);
 
 @interface OEGModel : NSObject
 
 + (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(CallbackBlock)block;
-+ (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(CallbackBlock)block originalData:(CallbackBlock)originalBlock;
++ (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(CallbackBlock)block originalData:(OriginalCallbackBlock)originalBlock;
 
 + (id)findOrInitialize:(NSDictionary *)dict;
 - (id)initWithDictionary:(NSDictionary *)dict;
