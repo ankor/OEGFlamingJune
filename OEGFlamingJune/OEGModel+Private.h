@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OEGModel.h"
+
+@class AFHTTPClient;
 
 @interface OEGModel ()
 
