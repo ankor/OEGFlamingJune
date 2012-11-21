@@ -103,9 +103,13 @@ static NSMutableDictionary *loadedObjects;
 
 - (id)initWithDictionary:(NSDictionary *)dict {
   if (self = [super init]) {
-    self.modelId = [NSString stringWithFormat:@"%@", [dict objectForKey:@"id"]];
+    if ([dict objectForKey:@"id"]) {
+      self.modelId = [NSString stringWithFormat:@"%@", [dict objectForKey:@"id"]];
+    }
     [self updateAttributes:dict];
-    [loadedObjects setObject:self forKey:[[self class] identityCacheKey:self.modelId]];
+    if (self.modelId) {
+      [loadedObjects setObject:self forKey:[[self class] identityCacheKey:self.modelId]];
+    }
   }
 
   return self;
