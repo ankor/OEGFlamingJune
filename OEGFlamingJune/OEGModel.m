@@ -182,10 +182,10 @@ static NSMutableDictionary *loadedObjects;
           NSMutableArray *associationObjects = [NSMutableArray arrayWithCapacity:[dictObj count]];
           for (NSDictionary *associationDict in dictObj) {
             id associationObject;
-            if ([dictObj isKindOfClass:[NSDictionary class]]) {
-              associationObject = [modelType findOrInitialize:dictObj];
+            if ([associationDict isKindOfClass:[NSDictionary class]]) {
+              associationObject = [modelType findOrInitialize:associationDict];
             } else {
-              associationObject = [modelType findOrInitialize:[NSDictionary dictionaryWithObject:dictObj forKey:@"id"]];
+              associationObject = [modelType findOrInitialize:[NSDictionary dictionaryWithObject:associationDict forKey:@"id"]];
             }
             [associationObjects addObject:associationObject];
           }
