@@ -143,16 +143,22 @@ static NSMutableDictionary *loadedObjects;
     return NULL;
   }
 
-  static char buffer[256];
-  const char *e = strchr(attrs, ',');
-  if (e == NULL)
-    return NULL;
+  if (attrs[1] == '@') {
+    // Object type
+    static char buffer[256];
+    const char *e = strchr(attrs, ',');
+    if (e == NULL)
+      return NULL;
 
-  int len = (int)(e - attrs);
-  memcpy(buffer, attrs + 3, len - 4);
-  buffer[len - 4] = '\0';
+    int len = (int)(e - attrs);
+    memcpy(buffer, attrs + 3, len - 4);
+    buffer[len - 4] = '\0';
 
-  return NSClassFromString([NSString stringWithCString:buffer encoding:NSUTF8StringEncoding]);
+    return NSClassFromString([NSString stringWithCString:buffer encoding:NSUTF8StringEncoding]);
+  } else {
+    // Primitive type
+    return [NSNumber class];
+  }
 }
 
 + (NSString *)identityCacheKey:(NSString *)theId {
