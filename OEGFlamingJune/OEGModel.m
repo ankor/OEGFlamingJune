@@ -75,6 +75,8 @@ static NSMutableDictionary *loadedObjects;
     id objectOrObjects = nil;
     if ([self arrayRootKey] && [responseObject objectForKey:[self arrayRootKey]]) {
       objectOrObjects = [self parseArray:[responseObject objectForKey:[self arrayRootKey]]];
+    } else if ([self dictionaryRootKey] && [responseObject objectForKey:[self dictionaryRootKey]]) {
+      objectOrObjects = [self findOrInitialize:[responseObject objectForKey:[self dictionaryRootKey]]];
     } else {
       objectOrObjects = [self findOrInitialize:responseObject];
     }
@@ -130,6 +132,11 @@ static NSMutableDictionary *loadedObjects;
 
 + (NSString *)arrayRootKey {
   // Optional. If array is returned wrapped in a dictionary with a root key, return that key here.
+  return nil;
+}
+
++ (NSString *)dictionaryRootKey {
+  // Optional. If object is returned wrapped in a dictionary with a root key, return that key here.
   return nil;
 }
 
