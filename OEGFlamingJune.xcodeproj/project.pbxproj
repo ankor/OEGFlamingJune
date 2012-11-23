@@ -24,6 +24,8 @@
 		D706D1411653EC5700FBB702 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D706D1401653EC5700FBB702 /* MobileCoreServices.framework */; };
 		D706D1431653EC6A00FBB702 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D706D1421653EC6A00FBB702 /* SystemConfiguration.framework */; };
 		D795D3CA165F811500AF0522 /* OEGObjectRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = D795D3C9165F811500AF0522 /* OEGObjectRepository.m */; };
+		D795D3D6165FAEB000AF0522 /* TransformingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D795D3D5165FAEB000AF0522 /* TransformingModel.m */; };
+		D795D3E6165FC28900AF0522 /* SenTestCase+AsyncTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = D795D3E5165FC28800AF0522 /* SenTestCase+AsyncTesting.m */; };
 		D795D3E9165FC5BC00AF0522 /* OEGJSONDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D795D3E8165FC5BC00AF0522 /* OEGJSONDateTransformer.m */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,10 @@
 		D706D1421653EC6A00FBB702 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D795D3C8165F811500AF0522 /* OEGObjectRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGObjectRepository.h; sourceTree = "<group>"; };
 		D795D3C9165F811500AF0522 /* OEGObjectRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGObjectRepository.m; sourceTree = "<group>"; };
+		D795D3D4165FAEB000AF0522 /* TransformingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformingModel.h; sourceTree = "<group>"; };
+		D795D3D5165FAEB000AF0522 /* TransformingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformingModel.m; sourceTree = "<group>"; };
+		D795D3E4165FC28800AF0522 /* SenTestCase+AsyncTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SenTestCase+AsyncTesting.h"; sourceTree = "<group>"; };
+		D795D3E5165FC28800AF0522 /* SenTestCase+AsyncTesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SenTestCase+AsyncTesting.m"; sourceTree = "<group>"; };
 		D795D3E7165FC5BC00AF0522 /* OEGJSONDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGJSONDateTransformer.h; sourceTree = "<group>"; };
 		D795D3E8165FC5BC00AF0522 /* OEGJSONDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGJSONDateTransformer.m; sourceTree = "<group>"; };
 		EBEC95E1D89D4AB9BEBE41DA /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,7 +177,11 @@
 		D706D0FF1653E8EE00FBB702 /* OEGFlamingJuneTests */ = {
 			isa = PBXGroup;
 			children = (
+				D795D3E4165FC28800AF0522 /* SenTestCase+AsyncTesting.h */,
+				D795D3E5165FC28800AF0522 /* SenTestCase+AsyncTesting.m */,
 				D706D11C1653E99A00FBB702 /* AppDotNet */,
+				D795D3D4165FAEB000AF0522 /* TransformingModel.h */,
+				D795D3D5165FAEB000AF0522 /* TransformingModel.m */,
 				D706D1261653E9CB00FBB702 /* OEGFlamingJuneTests.h */,
 				D706D1271653E9CB00FBB702 /* OEGFlamingJuneTests.m */,
 				D706D1281653E9CB00FBB702 /* OEGModelTests.h */,
@@ -347,6 +357,8 @@
 				D706D1251653E9B100FBB702 /* AppDotNetUser.m in Sources */,
 				D706D12A1653E9CB00FBB702 /* OEGFlamingJuneTests.m in Sources */,
 				D706D12B1653E9CB00FBB702 /* OEGModelTests.m in Sources */,
+				D795D3D6165FAEB000AF0522 /* TransformingModel.m in Sources */,
+				D795D3E6165FC28900AF0522 /* SenTestCase+AsyncTesting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

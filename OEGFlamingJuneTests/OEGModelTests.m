@@ -8,8 +8,12 @@
 
 #import <NSURLConnectionVCR.h>
 #import "OEGModelTests.h"
+#import "SenTestCase+AsyncTesting.h"
+
 #import "AppDotNetPost.h"
 #import "AppDotNetUser.h"
+
+#import "TransformingModel.h"
 
 #define QUOTE(str) #str
 #define EXPAND_AND_QUOTE(str) QUOTE(str)
@@ -35,6 +39,7 @@
   [self runAsyncAndWait:^(dispatch_semaphore_t semaphore) {
     [AppDotNetPost globalTimeline:^(NSArray *posts, NSError *error) {
       STAssertNil(error, nil);
+      STAssertEquals([posts count], 20U, nil);
       STAssertTrue([posts[0] isKindOfClass:[AppDotNetPost class]], nil);
       dispatch_semaphore_signal(semaphore);
     }];
@@ -70,16 +75,23 @@
   }];
 }
 
+- (void)testPropertyValueTransformer {
+  NSDictionary *sourceDict = @{
+    @"plaintext_string" : @"Dammit i'm mad!",
+    @"url": @"http://www.example.com/awesomeness"
+  };
 
-#pragma mark - Convenience
+  TransformingModel *model = [TransformingModel findOrInitialize:sourceDict];
 
-- (void)runAsyncAndWait:(void (^)(dispatch_semaphore_t semaphore))block {
-  dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+  STAssertEqualObjects(model.secretString, @"!dam m'i timmaD", nil);
+  STAssertEquals([model.aURL class], [NSURL class], nil);
+  STAssertEqualObjects(model.aURL, [NSURL URLWithString:@"http://www.example.com/awesomeness"], nil);
 
-  block(semaphore);
+  // Transform it back again
+  NSDictionary *targetDict = [model dictionaryRepresentation];
 
-  while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW))
-    [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+  STAssertEqualObjects([targetDict objectForKey:@"plaintext_string"], @"Dammit i'm mad!", nil);
+  STAssertEqualObjects([targetDict objectForKey:@"url"], @"http://www.example.com/awesomeness", nil);
 }
 
 @end

@@ -2,13 +2,16 @@
 PODS:
 - AFNetworking (1.0.1)
 - NSURLConnectionVCR (0.0.1)
+- TransformerKit (0.0.1)
 
 DEPENDENCIES:
 - AFNetworking
 - NSURLConnectionVCR
+- TransformerKit
 
 SPEC CHECKSUMS:
   AFNetworking: 4c11f857c9a18d65f4257c90a1e74ac49f0ac422
   NSURLConnectionVCR: 68fecf6cd8efb5c2ffcec8fb6d7e4e34a8968bb2
+  TransformerKit: 5d914b347bdad31fae9ea63b76f2d304f7fe3c6a
 
 COCOAPODS: 0.15.2
