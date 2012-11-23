@@ -10,17 +10,9 @@
 #import <AFNetworking.h>
 #import "OEGModel.h"
 #import "OEGModel+Private.h"
-
-static NSMutableDictionary *loadedObjects;
+#import "OEGObjectRepository.h"
 
 @implementation OEGModel
-
-+ (void)initialize {
-  if (!loadedObjects) {
-    loadedObjects = [NSMutableDictionary dictionary];
-  }
-}
-
 
 #pragma mark - Network requests
 
@@ -94,7 +86,7 @@ static NSMutableDictionary *loadedObjects;
 #pragma mark - Initialization
 
 + (id)findOrInitialize:(NSDictionary *)dict {
-  OEGModel *cachedObject = [loadedObjects objectForKey:[self identityCacheKey:[NSString stringWithFormat:@"%@", [dict objectForKey:@"id"]]]];
+  OEGModel *cachedObject = [[OEGObjectRepository sharedRepository] objectForClass:[self class] withId:[dict objectForKey:@"id"]];
   if (cachedObject) {
     [cachedObject updateAttributes:dict];
     return cachedObject;
@@ -110,7 +102,7 @@ static NSMutableDictionary *loadedObjects;
     }
     [self updateAttributes:dict];
     if (self.modelId) {
-      [loadedObjects setObject:self forKey:[[self class] identityCacheKey:self.modelId]];
+      [[OEGObjectRepository sharedRepository] storeObject:self];
     }
   }
 

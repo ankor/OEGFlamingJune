@@ -23,6 +23,7 @@
 		D706D13F1653EC4800FBB702 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D706D13E1653EC4800FBB702 /* UIKit.framework */; };
 		D706D1411653EC5700FBB702 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D706D1401653EC5700FBB702 /* MobileCoreServices.framework */; };
 		D706D1431653EC6A00FBB702 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D706D1421653EC6A00FBB702 /* SystemConfiguration.framework */; };
+		D795D3CA165F811500AF0522 /* OEGObjectRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = D795D3C9165F811500AF0522 /* OEGObjectRepository.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		D706D13E1653EC4800FBB702 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D706D1401653EC5700FBB702 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D706D1421653EC6A00FBB702 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D795D3C8165F811500AF0522 /* OEGObjectRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGObjectRepository.h; sourceTree = "<group>"; };
+		D795D3C9165F811500AF0522 /* OEGObjectRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGObjectRepository.m; sourceTree = "<group>"; };
 		EBEC95E1D89D4AB9BEBE41DA /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -145,6 +148,8 @@
 				D706D1101653E91B00FBB702 /* OEGModel.h */,
 				D706D1121653E91B00FBB702 /* OEGModel+Private.h */,
 				D706D1111653E91B00FBB702 /* OEGModel.m */,
+				D795D3C8165F811500AF0522 /* OEGObjectRepository.h */,
+				D795D3C9165F811500AF0522 /* OEGObjectRepository.m */,
 				D706D0EB1653E8EE00FBB702 /* Supporting Files */,
 			);
 			path = OEGFlamingJune;
@@ -322,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D706D1131653E91B00FBB702 /* OEGModel.m in Sources */,
+				D795D3CA165F811500AF0522 /* OEGObjectRepository.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
