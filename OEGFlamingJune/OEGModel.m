@@ -11,8 +11,16 @@
 #import "OEGModel.h"
 #import "OEGModel+Private.h"
 #import "OEGObjectRepository.h"
+#import "OEGJSONDateTransformer.h"
+
+NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
 
 @implementation OEGModel
+
++ (void)initialize {
+  [NSValueTransformer setValueTransformer:[[OEGJSONDateTransformer alloc] init] forName:OEGJSONDateTransformerName];
+}
+
 
 #pragma mark - Network requests
 
@@ -201,35 +209,50 @@
         } else {
           value = dictObj;
         }
-      } else if ([propertyType isSubclassOfClass:[NSDate class]]) {
-        // Parse JSON dates
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
-        dateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
-        dateFormatter.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-        value = [dateFormatter dateFromString:dictObj];
       } else {
         value = dictObj;
       }
 
-      if (value && value != [NSNull null]) {
-        [self setValue:value forKey:key];
+      if (value == [NSNull null]) {
+        value = nil;
       }
+
+      NSValueTransformer *transformer = [self valueTransformerForProperty:key];
+      if (transformer) {
+        value = [transformer transformedValue:value];
+      }
+
+      [self setValue:value forKey:key];
     }
   }];
 }
 
-- (Class)associationClassForProperty:(NSString *)propertyName {
+
+#pragma mark - Specifying extra information about properties via dynamically named callbacks
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+
+- (Class)associationClassForProperty:(NSString *)propertyName {
   SEL associationCheck = NSSelectorFromString([NSString stringWithFormat:@"associationClassFor_%@", propertyName]);
   if ([self respondsToSelector:associationCheck]) {
     return [self performSelector:associationCheck];
   } else {
     return nil;
   }
-#pragma clang diagnostic pop
 }
+
+- (NSValueTransformer *)valueTransformerForProperty:(NSString *)propertyName {
+  SEL transformerCheck = NSSelectorFromString([NSString stringWithFormat:@"%@Transformer", propertyName]);
+  if ([self respondsToSelector:transformerCheck]) {
+    return [self performSelector:transformerCheck];
+  } else {
+    if ([[self.class typeForPropertyName:propertyName] isSubclassOfClass:[NSDate class]]) {
+      return [NSValueTransformer valueTransformerForName:OEGJSONDateTransformerName];
+    }
+    return nil;
+  }
+}
+
+#pragma clang diagnostic pop
 
 @end
