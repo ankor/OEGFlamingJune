@@ -16,6 +16,8 @@
 + (AFHTTPClient *)httpClient;
 + (NSDictionary *)propertyMapping;
 + (NSString *)arrayRootKey;
++ (NSString *)dictionaryRootKey;
+
 + (Class)typeForPropertyName:(NSString *)propertyAccessor;
 + (NSString *)identityCacheKey:(NSString *)theId;
 - (void)updateAttributes:(NSDictionary *)dict;

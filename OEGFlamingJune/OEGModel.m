@@ -117,6 +117,26 @@ NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
   return self;
 }
 
+- (NSDictionary *)dictionaryRepresentation {
+  NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+  [[[self class] propertyMapping] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+    id value = [self valueForKey:key];
+
+    NSValueTransformer *transformer = [self valueTransformerForProperty:key];
+    if (transformer) {
+      value = [transformer reverseTransformedValue:value];
+    }
+
+    if ([value isKindOfClass:[OEGModel class]]) {
+      value = [value dictionaryRepresentation];
+    }
+
+    [dict setObject:value forKey:obj];
+  }];
+
+  return dict;
+}
+
 
 #pragma mark - To override
 

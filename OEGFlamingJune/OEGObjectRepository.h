@@ -17,4 +17,9 @@
 - (OEGModel *)objectForClass:(Class)klass withId:(NSString *)theId;
 - (void)storeObject:(OEGModel *)object;
 
+- (void)clean;
+- (NSUInteger)count;
+- (void)loadCached;
+- (void)saveToCache;
+
 @end

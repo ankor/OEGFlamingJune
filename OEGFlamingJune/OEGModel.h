@@ -23,4 +23,6 @@ typedef void(^OriginalCallbackBlock)(AFHTTPRequestOperation *operation, id respo
 
 @property (nonatomic, strong) NSString *modelId;
 
+- (NSDictionary *)dictionaryRepresentation;
+
 @end
