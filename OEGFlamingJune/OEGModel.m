@@ -191,11 +191,10 @@ static NSMutableDictionary *loadedObjects;
         } else {
           value = [propertyType findOrInitialize:[NSDictionary dictionaryWithObject:dictObj forKey:@"id"]];
         }
-      } else if ([propertyType isSubclassOfClass:[NSArray class]]) {
+      } else if ([propertyType isSubclassOfClass:[NSArray class]] || [propertyType isSubclassOfClass:[NSSet class]]) {
         // If this is an 1:n association, populate it with OEGModel objects, otherwise just set the array
-        SEL associationCheck = NSSelectorFromString([NSString stringWithFormat:@"associationClassFor_%@", key]);
-        if ([self respondsToSelector:associationCheck]) {
-          Class modelType = [self performSelector:associationCheck];
+        Class modelType = [self associationClassForProperty:key];
+        if (modelType) {
           NSMutableArray *associationObjects = [NSMutableArray arrayWithCapacity:[dictObj count]];
           for (NSDictionary *associationDict in dictObj) {
             id associationObject;
@@ -206,7 +205,7 @@ static NSMutableDictionary *loadedObjects;
             }
             [associationObjects addObject:associationObject];
           }
-          value = associationObjects;
+          value = [[propertyType alloc] initWithArray:associationObjects];
         } else {
           value = dictObj;
         }
@@ -227,6 +226,18 @@ static NSMutableDictionary *loadedObjects;
       }
     }
   }];
+}
+
+- (Class)associationClassForProperty:(NSString *)propertyName {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+  SEL associationCheck = NSSelectorFromString([NSString stringWithFormat:@"associationClassFor_%@", propertyName]);
+  if ([self respondsToSelector:associationCheck]) {
+    return [self performSelector:associationCheck];
+  } else {
+    return nil;
+  }
+#pragma clang diagnostic pop
 }
 
 @end
