@@ -28,6 +28,8 @@
 		D795D3E2165FBE3200AF0522 /* OEGObjectRepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D795D3E1165FBE3200AF0522 /* OEGObjectRepositoryTests.m */; };
 		D795D3E6165FC28900AF0522 /* SenTestCase+AsyncTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = D795D3E5165FC28800AF0522 /* SenTestCase+AsyncTesting.m */; };
 		D795D3E9165FC5BC00AF0522 /* OEGJSONDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D795D3E8165FC5BC00AF0522 /* OEGJSONDateTransformer.m */; };
+		D7CDA7D1166E3DD40087F272 /* OEGAssociationTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CDA7D0166E3DD40087F272 /* OEGAssociationTransformer.m */; };
+		D7CDA7D6166E4D820087F272 /* TagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CDA7D5166E4D820087F272 /* TagModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,10 @@
 		D795D3E5165FC28800AF0522 /* SenTestCase+AsyncTesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SenTestCase+AsyncTesting.m"; sourceTree = "<group>"; };
 		D795D3E7165FC5BC00AF0522 /* OEGJSONDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGJSONDateTransformer.h; sourceTree = "<group>"; };
 		D795D3E8165FC5BC00AF0522 /* OEGJSONDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGJSONDateTransformer.m; sourceTree = "<group>"; };
+		D7CDA7CF166E3DD40087F272 /* OEGAssociationTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGAssociationTransformer.h; sourceTree = "<group>"; };
+		D7CDA7D0166E3DD40087F272 /* OEGAssociationTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGAssociationTransformer.m; sourceTree = "<group>"; };
+		D7CDA7D4166E4D820087F272 /* TagModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagModel.h; sourceTree = "<group>"; };
+		D7CDA7D5166E4D820087F272 /* TagModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagModel.m; sourceTree = "<group>"; };
 		EBEC95E1D89D4AB9BEBE41DA /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -164,6 +170,8 @@
 				D795D3C9165F811500AF0522 /* OEGObjectRepository.m */,
 				D795D3E7165FC5BC00AF0522 /* OEGJSONDateTransformer.h */,
 				D795D3E8165FC5BC00AF0522 /* OEGJSONDateTransformer.m */,
+				D7CDA7CF166E3DD40087F272 /* OEGAssociationTransformer.h */,
+				D7CDA7D0166E3DD40087F272 /* OEGAssociationTransformer.m */,
 				D706D0EB1653E8EE00FBB702 /* Supporting Files */,
 			);
 			path = OEGFlamingJune;
@@ -180,11 +188,10 @@
 		D706D0FF1653E8EE00FBB702 /* OEGFlamingJuneTests */ = {
 			isa = PBXGroup;
 			children = (
+				D7CDA7D3166E4D690087F272 /* Test Models */,
 				D795D3E4165FC28800AF0522 /* SenTestCase+AsyncTesting.h */,
 				D795D3E5165FC28800AF0522 /* SenTestCase+AsyncTesting.m */,
 				D706D11C1653E99A00FBB702 /* AppDotNet */,
-				D795D3D4165FAEB000AF0522 /* TransformingModel.h */,
-				D795D3D5165FAEB000AF0522 /* TransformingModel.m */,
 				D706D1261653E9CB00FBB702 /* OEGFlamingJuneTests.h */,
 				D706D1271653E9CB00FBB702 /* OEGFlamingJuneTests.m */,
 				D706D1281653E9CB00FBB702 /* OEGModelTests.h */,
@@ -216,6 +223,17 @@
 				D706D1221653E9B100FBB702 /* AppDotNetUser.m */,
 			);
 			name = AppDotNet;
+			sourceTree = "<group>";
+		};
+		D7CDA7D3166E4D690087F272 /* Test Models */ = {
+			isa = PBXGroup;
+			children = (
+				D795D3D4165FAEB000AF0522 /* TransformingModel.h */,
+				D795D3D5165FAEB000AF0522 /* TransformingModel.m */,
+				D7CDA7D4166E4D820087F272 /* TagModel.h */,
+				D7CDA7D5166E4D820087F272 /* TagModel.m */,
+			);
+			name = "Test Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +368,7 @@
 				D706D1131653E91B00FBB702 /* OEGModel.m in Sources */,
 				D795D3CA165F811500AF0522 /* OEGObjectRepository.m in Sources */,
 				D795D3E9165FC5BC00AF0522 /* OEGJSONDateTransformer.m in Sources */,
+				D7CDA7D1166E3DD40087F272 /* OEGAssociationTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +384,7 @@
 				D795D3D6165FAEB000AF0522 /* TransformingModel.m in Sources */,
 				D795D3E2165FBE3200AF0522 /* OEGObjectRepositoryTests.m in Sources */,
 				D795D3E6165FC28900AF0522 /* SenTestCase+AsyncTesting.m in Sources */,
+				D7CDA7D6166E4D820087F272 /* TagModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

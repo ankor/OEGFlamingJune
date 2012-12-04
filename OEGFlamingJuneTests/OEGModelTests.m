@@ -14,6 +14,7 @@
 #import "AppDotNetUser.h"
 
 #import "TransformingModel.h"
+#import "TagModel.h"
 
 #define QUOTE(str) #str
 #define EXPAND_AND_QUOTE(str) QUOTE(str)
@@ -78,7 +79,8 @@
 - (void)testPropertyValueTransformer {
   NSDictionary *sourceDict = @{
     @"plaintext_string" : @"Dammit i'm mad!",
-    @"url": @"http://www.example.com/awesomeness"
+    @"url": @"http://www.example.com/awesomeness",
+    @"awesome": [NSNumber numberWithBool:YES]
   };
 
   TransformingModel *model = [TransformingModel findOrInitialize:sourceDict];
@@ -86,12 +88,39 @@
   STAssertEqualObjects(model.secretString, @"!dam m'i timmaD", nil);
   STAssertEquals([model.aURL class], [NSURL class], nil);
   STAssertEqualObjects(model.aURL, [NSURL URLWithString:@"http://www.example.com/awesomeness"], nil);
+  STAssertEquals(model.isAwesome, YES, nil);
 
   // Transform it back again
   NSDictionary *targetDict = [model dictionaryRepresentation];
 
   STAssertEqualObjects([targetDict objectForKey:@"plaintext_string"], @"Dammit i'm mad!", nil);
   STAssertEqualObjects([targetDict objectForKey:@"url"], @"http://www.example.com/awesomeness", nil);
+  STAssertEqualObjects([targetDict objectForKey:@"awesome"], [NSNumber numberWithBool:YES], nil);
+}
+
+- (void)testAssociationTransformer {
+  NSArray *tagDictionaryArray = @[@{@"name": @"cool_stuff"}, @{@"name": @"sweetness"}, @{@"name": @"awesome"}];
+  NSDictionary *sourceDict = @{
+    @"awesome": [NSNumber numberWithBool:NO],
+    @"tags": tagDictionaryArray
+  };
+
+  TransformingModel *model = [TransformingModel findOrInitialize:sourceDict];
+
+  STAssertEquals(model.isAwesome, NO, nil);
+  STAssertTrue([model.tags isKindOfClass:[NSMutableArray class]], nil);
+  STAssertEquals([model.tags count], 3U, nil);
+
+  STAssertEquals([[model.tags objectAtIndex:0] class], [TagModel class], nil);
+  STAssertEqualObjects(((TagModel *)[model.tags objectAtIndex:0]).name, @"cool_stuff", nil);
+  STAssertEqualObjects(((TagModel *)[model.tags objectAtIndex:1]).name, @"sweetness", nil);
+  STAssertEqualObjects(((TagModel *)[model.tags objectAtIndex:2]).name, @"awesome", nil);
+
+  // Transform it back again
+  NSDictionary *targetDict = [model dictionaryRepresentation];
+
+  STAssertEqualObjects([targetDict objectForKey:@"awesome"], [NSNumber numberWithBool:NO], nil);
+  STAssertEqualObjects([targetDict objectForKey:@"tags"], tagDictionaryArray, nil);
 }
 
 @end

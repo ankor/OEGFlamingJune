@@ -10,6 +10,8 @@
 #import <TransformerKit/NSValueTransformer+TransformerKit.h>
 #import "TransformingModel.h"
 #import "OEGModel+Private.h"
+#import "OEGAssociationTransformer.h"
+#import "TagModel.h"
 
 @implementation TransformingModel
 
@@ -28,7 +30,9 @@
 + (NSDictionary *)propertyMapping {
   return @{
     @"secretString": @"plaintext_string",
-    @"aURL": @"url"
+    @"aURL": @"url",
+    @"awesome": @"awesome",
+    @"tags": @"tags"
   };
 }
 
@@ -41,6 +45,13 @@
 
 - (NSValueTransformer *)aURLTransformer {
   return [NSValueTransformer valueTransformerForName:@"OEGURLTransformer"];
+}
+
+
+#pragma mark - Associations
+
+- (NSValueTransformer *)tagsTransformer {
+  return [OEGAssociationTransformer associationTransformerForModelClass:[TagModel class]];
 }
 
 @end

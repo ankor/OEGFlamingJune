@@ -12,6 +12,7 @@
 #import "OEGModel+Private.h"
 #import "OEGObjectRepository.h"
 #import "OEGJSONDateTransformer.h"
+#import "OEGAssociationTransformer.h"
 
 NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
 
@@ -131,7 +132,9 @@ NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
       value = [value dictionaryRepresentation];
     }
 
-    [dict setObject:value forKey:obj];
+    if (value) {
+      [dict setObject:value forKey:obj];
+    }
   }];
 
   return dict;
@@ -212,23 +215,7 @@ NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
           value = [propertyType findOrInitialize:[NSDictionary dictionaryWithObject:dictObj forKey:@"id"]];
         }
       } else if ([propertyType isSubclassOfClass:[NSArray class]] || [propertyType isSubclassOfClass:[NSSet class]]) {
-        // If this is an 1:n association, populate it with OEGModel objects, otherwise just set the array
-        Class modelType = [self associationClassForProperty:key];
-        if (modelType) {
-          NSMutableArray *associationObjects = [NSMutableArray arrayWithCapacity:[dictObj count]];
-          for (NSDictionary *associationDict in dictObj) {
-            id associationObject;
-            if ([associationDict isKindOfClass:[NSDictionary class]]) {
-              associationObject = [modelType findOrInitialize:associationDict];
-            } else {
-              associationObject = [modelType findOrInitialize:[NSDictionary dictionaryWithObject:associationDict forKey:@"id"]];
-            }
-            [associationObjects addObject:associationObject];
-          }
-          value = [[propertyType alloc] initWithArray:associationObjects];
-        } else {
-          value = dictObj;
-        }
+        value = [[propertyType alloc] initWithArray:dictObj];
       } else {
         value = dictObj;
       }
@@ -238,6 +225,10 @@ NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
       }
 
       NSValueTransformer *transformer = [self valueTransformerForProperty:key];
+      if ([transformer isKindOfClass:[OEGAssociationTransformer class]]) {
+        ((OEGAssociationTransformer *)transformer).propertyType = propertyType;
+      }
+
       if (transformer) {
         value = [transformer transformedValue:value];
       }
@@ -251,15 +242,6 @@ NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
 #pragma mark - Specifying extra information about properties via dynamically named callbacks
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-
-- (Class)associationClassForProperty:(NSString *)propertyName {
-  SEL associationCheck = NSSelectorFromString([NSString stringWithFormat:@"associationClassFor_%@", propertyName]);
-  if ([self respondsToSelector:associationCheck]) {
-    return [self performSelector:associationCheck];
-  } else {
-    return nil;
-  }
-}
 
 - (NSValueTransformer *)valueTransformerForProperty:(NSString *)propertyName {
   SEL transformerCheck = NSSelectorFromString([NSString stringWithFormat:@"%@Transformer", propertyName]);

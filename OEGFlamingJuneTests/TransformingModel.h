@@ -12,5 +12,7 @@
 
 @property (nonatomic, strong) NSString *secretString;
 @property (nonatomic, strong) NSURL *aURL;
+@property (nonatomic, assign, getter = isAwesome) BOOL awesome;
+@property (nonatomic, strong) NSMutableArray *tags;
 
 @end
