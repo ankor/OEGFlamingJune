@@ -14,52 +14,55 @@ Let your models inherit from `OEGModel` like so:
 
 ### Header
 
-    #import "OEGModel.h"
+```objective-c
+#import "OEGModel.h"
 
-    @class AppDotNetUser;
+@class AppDotNetUser;
 
-    @interface AppDotNetPost : OEGModel
+@interface AppDotNetPost : OEGModel
 
-    @property (nonatomic, strong) NSDate *createdAt;
-    @property (nonatomic, strong) NSString *text;
-    @property (nonatomic, strong) AppDotNetUser *user;
+@property (nonatomic, strong) NSDate *createdAt;
+@property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) AppDotNetUser *user;
 
-    + (void)globalTimeline:(CallbackBlock)block;
-
++ (void)globalTimeline:(CallbackBlock)block;
+```
 
 ### Implementation
 
-    #import <AFNetworking.h>
-    #import "AppDotNetPost.h"
-    #import "AFAppDotNetAPIClient.h"
-    #import "OEGModel+Private.h"
+```objective-c
+#import <AFNetworking.h>
+#import "AppDotNetPost.h"
+#import "AFAppDotNetAPIClient.h"
+#import "OEGModel+Private.h"
 
-    @implementation AppDotNetPost
+@implementation AppDotNetPost
 
-    + (NSDictionary *)propertyMapping {
-      return @{
-        @"createdAt" : @"created_at",
-        @"text": @"text",
-        @"user": @"user"
-      };
-    }
++ (NSDictionary *)propertyMapping {
+  return @{
+    @"createdAt" : @"created_at",
+    @"text": @"text",
+    @"user": @"user"
+  };
+}
 
-    + (NSString *)arrayRootKey {
-      return @"data";
-    }
++ (NSString *)arrayRootKey {
+  return @"data";
+}
 
-    + (AFHTTPClient *)httpClient {
-      return [AFAppDotNetAPIClient sharedClient];
-    }
++ (AFHTTPClient *)httpClient {
+  return [AFAppDotNetAPIClient sharedClient];
+}
 
 
-    #pragma mark - Finding posts
+#pragma mark - Finding posts
 
-    + (void)globalTimeline:(CallbackBlock)block {
-      [self requestMethod:@"get" path:@"stream/0/posts/stream/global" params:nil inBackground:block];
-    }
++ (void)globalTimeline:(CallbackBlock)block {
+  [self requestMethod:@"get" path:@"stream/0/posts/stream/global" params:nil inBackground:block];
+}
 
-    @end
+@end
+```
 
 The `globalTimeline:` method will call the callback block with an `NSArray` of `AppDotNetPost` objects or an `NSError` in case of error.
 
@@ -89,24 +92,30 @@ A few property transformations are automatically handled:
 
 If your model has an `NSArray` or `NSSet` property and the web service responds with an array of dictionaries which should be interpreted as `OEGModel` objects, Flaming June supplies a special `NSValueTransformer` subclass called `OEGAssociationTransformer`.
 
-Let's say you have an OEGModel subclass that has a property of type `NSArray` called `children`. This property should be initialised with an array of objects with the class `ChildObject` and the web service responds with a number of dictionaries representing these objects, implement this behaviour like this:
+Let's say you have an `OEGModel` subclass that has a property of type `NSArray` called `children`. This property should be initialised with an array of objects with the class `ChildObject` and the web service responds with a number of dictionaries representing these objects, implement this behaviour like this:
 
-    - (NSValueTransformer *)childrenTransformer {
-      return [OEGAssociationTransformer associationTransformerForModelClass:[ChildObject class])];
-    }
+```objective-c
+- (NSValueTransformer *)childrenTransformer {
+  return [OEGAssociationTransformer associationTransformerForModelClass:[ChildObject class])];
+}
+```
 
 The web service can also respond with an array of numerical ID's and the `children` array will be initialised with the correct `ChildObject` objects, as long as the objects were stored in the Object Repository at the time of initialisation.
 
 
-# Persisting the Object Repository
+## Persisting the Object Repository
 
 The identity mapped local cache of objects are handled by the `OEGObjectRepository`. This class has some methods for persisting and loading the objects for offline caching purposes. To e.g. save the Object Repository when the app terminates, call:
 
-    [[OEGObjectRepository sharedRepository] saveToCache];
+```objective-c
+[[OEGObjectRepository sharedRepository] saveToCache];
+```
 
 To load it again when the app boots:
 
-    [[OEGObjectRepository sharedRepository] loadCached];
+```objective-c
+[[OEGObjectRepository sharedRepository] loadCached];
+```
 
 There is also a method `- (void)clean` to empty the object repository, and `- (NSUInteger)count` to count the number of objects in it.
 
