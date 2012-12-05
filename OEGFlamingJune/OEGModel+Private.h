@@ -19,7 +19,6 @@
 + (NSString *)dictionaryRootKey;
 
 + (Class)typeForPropertyName:(NSString *)propertyAccessor;
-+ (NSString *)identityCacheKey:(NSString *)theId;
 - (void)updateAttributes:(NSDictionary *)dict;
 
 @end

@@ -170,12 +170,8 @@ NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
   objc_property_t property = class_getProperty([self class], [propertyAccessor UTF8String]);
 
   const char *attrs = property_getAttributes(property);
-  if (attrs == NULL)
+  if (attrs == NULL || attrs[0] != 'T')
     return NULL;
-
-  if (attrs[0] != 'T') {
-    return NULL;
-  }
 
   if (attrs[1] == '@') {
     // Object type
@@ -193,10 +189,6 @@ NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
     // Primitive type
     return [NSNumber class];
   }
-}
-
-+ (NSString *)identityCacheKey:(NSString *)theId {
-  return [NSString stringWithFormat:@"%@-%@", NSStringFromClass([self class]), theId];
 }
 
 - (void)updateAttributes:(NSDictionary *)dict {

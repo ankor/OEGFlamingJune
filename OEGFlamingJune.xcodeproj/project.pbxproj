@@ -188,9 +188,8 @@
 		D706D0FF1653E8EE00FBB702 /* OEGFlamingJuneTests */ = {
 			isa = PBXGroup;
 			children = (
+				D7C58325166F7AE4001111EC /* Support */,
 				D7CDA7D3166E4D690087F272 /* Test Models */,
-				D795D3E4165FC28800AF0522 /* SenTestCase+AsyncTesting.h */,
-				D795D3E5165FC28800AF0522 /* SenTestCase+AsyncTesting.m */,
 				D706D11C1653E99A00FBB702 /* AppDotNet */,
 				D706D1261653E9CB00FBB702 /* OEGFlamingJuneTests.h */,
 				D706D1271653E9CB00FBB702 /* OEGFlamingJuneTests.m */,
@@ -223,6 +222,15 @@
 				D706D1221653E9B100FBB702 /* AppDotNetUser.m */,
 			);
 			name = AppDotNet;
+			sourceTree = "<group>";
+		};
+		D7C58325166F7AE4001111EC /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				D795D3E4165FC28800AF0522 /* SenTestCase+AsyncTesting.h */,
+				D795D3E5165FC28800AF0522 /* SenTestCase+AsyncTesting.m */,
+			);
+			name = Support;
 			sourceTree = "<group>";
 		};
 		D7CDA7D3166E4D690087F272 /* Test Models */ = {
