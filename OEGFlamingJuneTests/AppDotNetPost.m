@@ -40,4 +40,12 @@
   [self requestMethod:@"get" path:@"stream/0/posts/stream/global" params:nil inBackground:block];
 }
 
++ (void)globalTimeline:(CallbackBlock)block originalData:(OriginalCallbackBlock)originalData {
+  NSDictionary *options = @{
+    OEGFlamingJuneOriginalDataCallbackKey: originalData
+  };
+
+  [self requestMethod:@"get" path:@"stream/0/posts/stream/global" params:nil inBackground:block options:options];
+}
+
 @end

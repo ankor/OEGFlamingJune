@@ -22,5 +22,6 @@
 @property (nonatomic, strong) NSNumber *numStars;
 
 + (void)globalTimeline:(CallbackBlock)block;
++ (void)globalTimeline:(CallbackBlock)block originalData:(OriginalCallbackBlock)originalData;
 
 @end

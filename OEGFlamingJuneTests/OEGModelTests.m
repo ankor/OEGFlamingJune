@@ -47,6 +47,16 @@
   }];
 }
 
+- (void)testOriginalDataCallback {
+  [self runAsyncAndWait:^(dispatch_semaphore_t semaphore) {
+    [AppDotNetPost globalTimeline:nil originalData:^(AFHTTPRequestOperation *operation, id responseData, NSError *error) {
+      STAssertNotNil([responseData objectForKey:@"data"], nil);
+      STAssertEquals([[responseData objectForKey:@"data"] count], 20U, nil);
+      dispatch_semaphore_signal(semaphore);
+    }];
+  }];
+}
+
 - (void)testFillsProperties {
   [self runAsyncAndWait:^(dispatch_semaphore_t semaphore) {
     [AppDotNetPost globalTimeline:^(NSArray *posts, NSError *error) {

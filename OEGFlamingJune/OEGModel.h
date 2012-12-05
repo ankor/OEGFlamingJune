@@ -13,10 +13,12 @@
 typedef void(^CallbackBlock)(id responseData, NSError *error);
 typedef void(^OriginalCallbackBlock)(AFHTTPRequestOperation *operation, id responseData, NSError *error);
 
+#define OEGFlamingJuneOriginalDataCallbackKey @"OEGFlamingJuneOriginalDataCallbackKey"
+
 @interface OEGModel : NSObject
 
 + (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(CallbackBlock)block;
-+ (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(CallbackBlock)block originalData:(OriginalCallbackBlock)originalBlock;
++ (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(CallbackBlock)block options:(NSDictionary *)options;
 
 + (id)findOrInitialize:(NSDictionary *)dict;
 - (id)initWithDictionary:(NSDictionary *)dict;
