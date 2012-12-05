@@ -23,5 +23,6 @@
 
 + (void)globalTimeline:(CallbackBlock)block;
 + (void)globalTimeline:(CallbackBlock)block originalData:(OriginalCallbackBlock)originalData;
++ (void)globalTimelineWithResponseCache:(CallbackBlock)block;
 
 @end

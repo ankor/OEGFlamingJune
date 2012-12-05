@@ -8,6 +8,7 @@
 
 #import <objc/runtime.h>
 #import <AFNetworking.h>
+#import <EGOCache.h>
 #import "OEGModel.h"
 #import "OEGModel+Private.h"
 #import "OEGObjectRepository.h"
@@ -31,9 +32,24 @@ NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
 
 + (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(CallbackBlock)block options:(NSDictionary *)options {
   OriginalCallbackBlock originalBlock = [options objectForKey:OEGFlamingJuneOriginalDataCallbackKey];
+  BOOL forceCache = [options objectForKey:OEGFlamingJuneForceCacheKey] || NO;
+  NSString *responseCacheKey = nil;
 
   NSMutableURLRequest *request = [[self httpClient] requestWithMethod:[method uppercaseString] path:path parameters:params];
+
+  if (forceCache && [request.HTTPMethod isEqualToString:@"GET"]) {
+    responseCacheKey = [OEGModel responseCacheKeyForRequest:request];
+  }
+
+  if (responseCacheKey) {
+    [self handleResponseData:[[OEGModel responseCache] objectForKey:responseCacheKey] withBlock:block];
+  }
+
   AFHTTPRequestOperation *operation = [[self httpClient] HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    if (responseCacheKey) {
+      [[OEGModel responseCache] setObject:responseObject forKey:responseCacheKey];
+    }
+
     [self handleResponseData:responseObject withBlock:block];
     if (originalBlock != nil) {
       originalBlock(operation, responseObject, nil);
@@ -133,6 +149,10 @@ NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
   return dict;
 }
 
++ (void)clearResponseCache {
+  [[self responseCache] clearCache];
+}
+
 
 #pragma mark - To override
 
@@ -221,6 +241,23 @@ NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
       [self setValue:value forKey:key];
     }
   }];
+}
+
++ (EGOCache *)responseCache {
+  static EGOCache *cache;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    NSString* cachesDirectory = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
+    cachesDirectory = [[[cachesDirectory stringByAppendingPathComponent:[[NSBundle mainBundle] bundleIdentifier]] stringByAppendingPathComponent:@"OEGFlamingJuneResponseCache"] copy];
+    cache = [[EGOCache alloc] initWithCacheDirectory:cachesDirectory];
+    cache.defaultTimeoutInterval = 86400 * 365; // 1 year
+  });
+
+  return cache;
+}
+
++ (NSString *)responseCacheKeyForRequest:(NSMutableURLRequest *)request {
+  return [[[request URL] absoluteString] stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
 }
 
 

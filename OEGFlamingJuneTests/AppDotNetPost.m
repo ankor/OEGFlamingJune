@@ -48,4 +48,12 @@
   [self requestMethod:@"get" path:@"stream/0/posts/stream/global" params:nil inBackground:block options:options];
 }
 
++ (void)globalTimelineWithResponseCache:(CallbackBlock)block {
+  NSDictionary *options = @{
+    OEGFlamingJuneForceCacheKey: @YES
+  };
+
+  [self requestMethod:@"get" path:@"stream/0/posts/stream/global" params:nil inBackground:block options:options];
+}
+
 @end

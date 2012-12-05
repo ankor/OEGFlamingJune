@@ -14,6 +14,7 @@ typedef void(^CallbackBlock)(id responseData, NSError *error);
 typedef void(^OriginalCallbackBlock)(AFHTTPRequestOperation *operation, id responseData, NSError *error);
 
 #define OEGFlamingJuneOriginalDataCallbackKey @"OEGFlamingJuneOriginalDataCallbackKey"
+#define OEGFlamingJuneForceCacheKey @"OEGFlamingJuneForceCacheKey"
 
 @interface OEGModel : NSObject
 
@@ -26,5 +27,7 @@ typedef void(^OriginalCallbackBlock)(AFHTTPRequestOperation *operation, id respo
 @property (nonatomic, strong) NSString *modelId;
 
 - (NSDictionary *)dictionaryRepresentation;
+
++ (void)clearResponseCache;
 
 @end

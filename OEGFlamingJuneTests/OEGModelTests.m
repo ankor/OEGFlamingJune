@@ -86,6 +86,46 @@
   }];
 }
 
+- (void)testResponseCache {
+  [OEGModel clearResponseCache];
+
+  // Empty cache
+  [self runAsyncAndWait:^(dispatch_semaphore_t semaphore) {
+    [AppDotNetPost globalTimelineWithResponseCache:^(NSArray *posts, NSError *error) {
+      static int counter = 0;
+      counter++;
+
+      STAssertNil(error, nil);
+      if (counter == 1) {
+        STAssertEquals([posts count], 0U, nil);
+      } else if (counter == 2) {
+        STAssertEquals([posts count], 20U, nil);
+      }
+
+      if (counter == 2) {
+        [NSThread sleepForTimeInterval:0.6];  // To let EGOCache async write to disk after 0.5 s wait time
+        dispatch_semaphore_signal(semaphore);
+      }
+    }];
+  }];
+
+  // Loaded cache
+  [self runAsyncAndWait:^(dispatch_semaphore_t semaphore) {
+    [AppDotNetPost globalTimelineWithResponseCache:^(NSArray *posts, NSError *error) {
+      static int counter = 0;
+      counter++;
+
+      STAssertNil(error, nil);
+      STAssertEquals([posts count], 20U, nil);
+
+      if (counter == 2) {
+        [NSThread sleepForTimeInterval:0.6];  // To let EGOCache async write to disk after 0.5 s wait time
+        dispatch_semaphore_signal(semaphore);
+      }
+    }];
+  }];
+}
+
 - (void)testPropertyValueTransformer {
   NSDictionary *sourceDict = @{
     @"plaintext_string" : @"Dammit i'm mad!",
