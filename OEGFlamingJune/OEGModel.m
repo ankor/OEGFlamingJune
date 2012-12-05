@@ -26,16 +26,7 @@ NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
 #pragma mark - Network requests
 
 + (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(CallbackBlock)block {
-  NSMutableURLRequest *request = [[self httpClient] requestWithMethod:[method uppercaseString] path:path parameters:params];
-  AFHTTPRequestOperation *operation = [[self httpClient] HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    [self handleResponseData:responseObject withBlock:block];
-  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    if (block != nil) {
-      block(nil, error);
-    }
-  }];
-
-  [[self httpClient] enqueueHTTPRequestOperation:operation];
+  [self requestMethod:method path:path params:params inBackground:block originalData:nil];
 }
 
 + (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(CallbackBlock)block originalData:(OriginalCallbackBlock)originalBlock {
