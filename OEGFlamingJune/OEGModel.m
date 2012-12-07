@@ -26,12 +26,12 @@ NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
 
 #pragma mark - Network requests
 
-+ (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(CallbackBlock)block {
++ (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(OEGCallbackBlock)block {
   [self requestMethod:method path:path params:params inBackground:block options:nil];
 }
 
-+ (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(CallbackBlock)block options:(NSDictionary *)options {
-  OriginalCallbackBlock originalBlock = [options objectForKey:OEGFlamingJuneOriginalDataCallbackKey];
++ (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(OEGCallbackBlock)block options:(NSDictionary *)options {
+  OEGRawCallbackBlock originalBlock = [options objectForKey:OEGFlamingJuneRawCallbackKey];
   BOOL forceCache = [options objectForKey:OEGFlamingJuneForceCacheKey] || NO;
   NSString *responseCacheKey = nil;
 
@@ -75,7 +75,7 @@ NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
   return objects;
 }
 
-+ (void)handleResponseData:(id)responseObject withBlock:(CallbackBlock)block {
++ (void)handleResponseData:(id)responseObject withBlock:(OEGCallbackBlock)block {
   if ([responseObject isKindOfClass:[NSArray class]]) {
     NSMutableArray *objects = [self parseArray:responseObject];
     if (block != nil) {

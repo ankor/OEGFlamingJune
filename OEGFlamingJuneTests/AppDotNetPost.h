@@ -21,8 +21,8 @@
 @property (nonatomic, strong) NSNumber *numReposts;
 @property (nonatomic, strong) NSNumber *numStars;
 
-+ (void)globalTimeline:(CallbackBlock)block;
-+ (void)globalTimeline:(CallbackBlock)block originalData:(OriginalCallbackBlock)originalData;
-+ (void)globalTimelineWithResponseCache:(CallbackBlock)block;
++ (void)globalTimeline:(OEGCallbackBlock)block;
++ (void)globalTimeline:(OEGCallbackBlock)block originalData:(OEGRawCallbackBlock)originalData;
++ (void)globalTimelineWithResponseCache:(OEGCallbackBlock)block;
 
 @end

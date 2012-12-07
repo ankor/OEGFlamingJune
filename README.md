@@ -25,7 +25,7 @@ Let your models inherit from `OEGModel` like so:
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) AppDotNetUser *user;
 
-+ (void)globalTimeline:(CallbackBlock)block;
++ (void)globalTimeline:(OEGCallbackBlock)block;
 ```
 
 ### Implementation
@@ -57,7 +57,7 @@ Let your models inherit from `OEGModel` like so:
 
 #pragma mark - Finding posts
 
-+ (void)globalTimeline:(CallbackBlock)block {
++ (void)globalTimeline:(OEGCallbackBlock)block {
   [self requestMethod:@"get" path:@"stream/0/posts/stream/global" params:nil inBackground:block];
 }
 
@@ -66,7 +66,12 @@ Let your models inherit from `OEGModel` like so:
 
 The `globalTimeline:` method will call the callback block with an `NSArray` of `AppDotNetPost` objects or an `NSError` in case of error.
 
-The `arrayRootKey` method is used because the App.net API wraps the response array in a JSON object with the key `data`.
+The `arrayRootKey` method is used because the App.net API wraps the response array in a JSON object with the key `data`. If the response is wrapped in a JSON object with some key when fetching only one resource, specify this in the `dictionaryRootKey` callback.
+
+It is suggested that your models declare some public methods for fetching or updating specific data, and these methods in turn use the internal `requestMethod:path:params:inBackground:` method. For more flexibility, there is the method `requestMethod:path:params:inBackground:options:`. The options parameter is an `NSDictionary` with the following possible keys:
+
+- `OEGFlamingJuneRawCallbackKey`: a callback block of type `OEGRawCallbackBlock` which is called with the raw AFNetworking response parameters (before the data is mapped to OEGModel objects). The parameter list to the block is: `AFHTTPRequestOperation *operation, id responseData, NSError *error`.
+- `OEGFlamingJuneForceCacheKey`: if this is set to `@YES`, the HTTP response will be cached regardless of cache headers. The callback block will be called twice if there is previously cached data, first with the cached data and the second time with the fresh data when the request has finished. The data is cached to disk.
 
 Because the `user` property is defined as an `AppDotNetUser`, which also is a subclass of `OEGModel`, it will be populated using that class's `propertyMapping`. If several posts share the same user (same ID), they will be associated with the same in-memory object.
 
@@ -96,7 +101,7 @@ Let's say you have an `OEGModel` subclass that has a property of type `NSArray` 
 
 ```objective-c
 - (NSValueTransformer *)childrenTransformer {
-  return [OEGAssociationTransformer associationTransformerForModelClass:[ChildObject class])];
+  return [OEGAssociationTransformer associationTransformerForModelClass:[ChildObject class]];
 }
 ```
 

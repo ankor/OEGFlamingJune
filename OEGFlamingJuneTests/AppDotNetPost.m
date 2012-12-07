@@ -36,19 +36,19 @@
 
 #pragma mark - Finding posts
 
-+ (void)globalTimeline:(CallbackBlock)block {
++ (void)globalTimeline:(OEGCallbackBlock)block {
   [self requestMethod:@"get" path:@"stream/0/posts/stream/global" params:nil inBackground:block];
 }
 
-+ (void)globalTimeline:(CallbackBlock)block originalData:(OriginalCallbackBlock)originalData {
++ (void)globalTimeline:(OEGCallbackBlock)block originalData:(OEGRawCallbackBlock)originalData {
   NSDictionary *options = @{
-    OEGFlamingJuneOriginalDataCallbackKey: originalData
+    OEGFlamingJuneRawCallbackKey: originalData
   };
 
   [self requestMethod:@"get" path:@"stream/0/posts/stream/global" params:nil inBackground:block options:options];
 }
 
-+ (void)globalTimelineWithResponseCache:(CallbackBlock)block {
++ (void)globalTimelineWithResponseCache:(OEGCallbackBlock)block {
   NSDictionary *options = @{
     OEGFlamingJuneForceCacheKey: @YES
   };

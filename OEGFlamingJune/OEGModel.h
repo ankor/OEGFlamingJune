@@ -10,16 +10,16 @@
 
 @class AFHTTPRequestOperation;
 
-typedef void(^CallbackBlock)(id responseData, NSError *error);
-typedef void(^OriginalCallbackBlock)(AFHTTPRequestOperation *operation, id responseData, NSError *error);
+typedef void(^OEGCallbackBlock)(id responseData, NSError *error);
+typedef void(^OEGRawCallbackBlock)(AFHTTPRequestOperation *operation, id responseData, NSError *error);
 
-#define OEGFlamingJuneOriginalDataCallbackKey @"OEGFlamingJuneOriginalDataCallbackKey"
+#define OEGFlamingJuneRawCallbackKey @"OEGFlamingJuneOriginalDataCallbackKey"
 #define OEGFlamingJuneForceCacheKey @"OEGFlamingJuneForceCacheKey"
 
 @interface OEGModel : NSObject
 
-+ (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(CallbackBlock)block;
-+ (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(CallbackBlock)block options:(NSDictionary *)options;
++ (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(OEGCallbackBlock)block;
++ (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(OEGCallbackBlock)block options:(NSDictionary *)options;
 
 + (id)findOrInitialize:(NSDictionary *)dict;
 - (id)initWithDictionary:(NSDictionary *)dict;
