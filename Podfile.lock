@@ -17,4 +17,4 @@ SPEC CHECKSUMS:
   NSURLConnectionVCR: 68fecf6cd8efb5c2ffcec8fb6d7e4e34a8968bb2
   TransformerKit: 5d914b347bdad31fae9ea63b76f2d304f7fe3c6a
 
-COCOAPODS: 0.15.2
+COCOAPODS: 0.16.0
