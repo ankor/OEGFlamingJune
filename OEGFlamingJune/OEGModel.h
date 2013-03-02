@@ -15,6 +15,7 @@ typedef void(^OEGRawCallbackBlock)(AFHTTPRequestOperation *operation, id respons
 
 #define OEGFlamingJuneRawCallbackKey @"OEGFlamingJuneOriginalDataCallbackKey"
 #define OEGFlamingJuneForceCacheKey @"OEGFlamingJuneForceCacheKey"
+#define OEGFlamingJuneForceCacheCallbackKey @"OEGFlamingJuneForceCacheCallbackKey"
 
 @interface OEGModel : NSObject
 

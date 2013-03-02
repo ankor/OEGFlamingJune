@@ -56,4 +56,20 @@
   [self requestMethod:@"get" path:@"stream/0/posts/stream/global" params:nil inBackground:block options:options];
 }
 
++ (void)globalTimelineWithResponseCacheSpecificCallback:(OEGCallbackBlock)block {
+  OEGCallbackBlock cacheBlock = ^(NSArray *posts, NSError *error) {
+    for (AppDotNetPost *post in posts) {
+      post.text = @"From cache!";
+    }
+    block(posts, error);
+  };
+
+  NSDictionary *options = @{
+    OEGFlamingJuneForceCacheKey: @YES,
+    OEGFlamingJuneForceCacheCallbackKey: cacheBlock
+  };
+
+  [self requestMethod:@"get" path:@"stream/0/posts/stream/global" params:nil inBackground:block options:options];
+}
+
 @end

@@ -33,6 +33,7 @@ NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
 + (void)requestMethod:(NSString *)method path:(NSString *)path params:(NSDictionary *)params inBackground:(OEGCallbackBlock)block options:(NSDictionary *)options {
   OEGRawCallbackBlock originalBlock = [options objectForKey:OEGFlamingJuneRawCallbackKey];
   BOOL forceCache = [options objectForKey:OEGFlamingJuneForceCacheKey] || NO;
+  OEGCallbackBlock cachedResponseCallbackBlock = [options objectForKey:OEGFlamingJuneForceCacheCallbackKey];
   NSString *responseCacheKey = nil;
 
   NSMutableURLRequest *request = [[self httpClient] requestWithMethod:[method uppercaseString] path:path parameters:params];
@@ -42,7 +43,12 @@ NSString * const OEGJSONDateTransformerName = @"OEGJSONDateTransformer";
   }
 
   if (responseCacheKey) {
-    [self handleResponseData:[[OEGModel responseCache] objectForKey:responseCacheKey] withBlock:block];
+    OEGCallbackBlock cacheBlock = cachedResponseCallbackBlock;
+    if (cacheBlock == NULL) {
+      cacheBlock = block;
+    }
+
+    [self handleResponseData:[[OEGModel responseCache] objectForKey:responseCacheKey] withBlock:cacheBlock];
   }
 
   AFHTTPRequestOperation *operation = [[self httpClient] HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -24,5 +24,6 @@
 + (void)globalTimeline:(OEGCallbackBlock)block;
 + (void)globalTimeline:(OEGCallbackBlock)block originalData:(OEGRawCallbackBlock)originalData;
 + (void)globalTimelineWithResponseCache:(OEGCallbackBlock)block;
++ (void)globalTimelineWithResponseCacheSpecificCallback:(OEGCallbackBlock)block;
 
 @end

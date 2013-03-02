@@ -119,7 +119,43 @@
       STAssertEquals([posts count], 20U, nil);
 
       if (counter == 2) {
+        //[NSThread sleepForTimeInterval:0.6];  // To let EGOCache async write to disk after 0.5 s wait time
+        dispatch_semaphore_signal(semaphore);
+      }
+    }];
+  }];
+}
+
+- (void)testResponseCacheSpecificCallback {
+  [OEGModel clearResponseCache];
+
+  // Fill the cache
+  [self runAsyncAndWait:^(dispatch_semaphore_t semaphore) {
+    [AppDotNetPost globalTimelineWithResponseCacheSpecificCallback:^(NSArray *posts, NSError *error) {
+      static int counter = 0;
+      counter++;
+
+      if (counter == 2) {
         [NSThread sleepForTimeInterval:0.6];  // To let EGOCache async write to disk after 0.5 s wait time
+        dispatch_semaphore_signal(semaphore);
+      }
+    }];
+  }];
+
+  [self runAsyncAndWait:^(dispatch_semaphore_t semaphore) {
+    [AppDotNetPost globalTimelineWithResponseCacheSpecificCallback:^(NSArray *posts, NSError *error) {
+      static int counter = 0;
+      counter++;
+
+      STAssertNil(error, nil);
+      STAssertEquals([posts count], 20U, nil);
+      if (counter == 1) {
+        STAssertEqualObjects([[posts lastObject] text], @"From cache!", nil);
+      } else if (counter == 2) {
+        STAssertEqualObjects([[posts lastObject] text], @"@happybuddha Der Text ist raus :) #mwzm", nil);
+      }
+
+      if (counter == 2) {
         dispatch_semaphore_signal(semaphore);
       }
     }];
